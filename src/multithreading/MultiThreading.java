@@ -23,6 +23,16 @@ public class MultiThreading {
         Thread threadTwo = new Thread(new Thread2(), "threadTwo");
         threadTwo.start();
         
+        
+        
+        Runnable myRunnable = () -> {
+            String threadName = Thread.currentThread().getName() ;
+            System.out.println("This code is made runnable via thread: " + threadName);
+        } ;
+        
+        Thread threadRunner = new Thread(myRunnable, "threadThree" );
+        threadRunner.start() ;
+        
         System.out.println("Main thread has stoped execution");
     }
     
